@@ -19,11 +19,15 @@ variable "resource_names_map" {
 
   default = {
     mysql_server = {
-      name       = "psql"
+      name       = "mysql"
       max_length = 60
     }
     resource_group = {
       name       = "rg"
+      max_length = 60
+    }
+    managed_identity = {
+      name       = "mi"
       max_length = 60
     }
   }
