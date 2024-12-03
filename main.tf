@@ -12,7 +12,7 @@
 
 resource "azurerm_mysql_flexible_server_active_directory_administrator" "administrator" {
   server_id   = var.mysql_server_id
-  identity_id = var.principal_id
+  identity_id = var.identity_id
   login       = var.login
   tenant_id   = var.tenant_id
   object_id   = var.object_id

@@ -13,12 +13,15 @@
 data "azurerm_client_config" "client" {}
 
 module "managed_identity" {
-  source  = "terraform.registry.launch.nttdata.com/module_primitive/user_managed_identity/azurerm"
-  version = "~> 1.0"
+  source = "git::https://github.com/launchbynttdata/tf-azurerm-module_primitive-user_managed_identity?ref=feat/output_name"
+  #source  = "terraform.registry.launch.nttdata.com/module_primitive/user_managed_identity/azurerm"
+  #version = "~> 1.0"
 
   user_assigned_identity_name = module.resource_names["managed_identity"].minimal_random_suffix
   resource_group_name         = module.resource_group.name
   location                    = var.location
+
+  depends_on = [module.resource_group]
 }
 
 module "resource_names" {
@@ -47,6 +50,16 @@ module "resource_group" {
   tags = merge(var.tags, { resource_name = module.resource_names["resource_group"].standard })
 }
 
+# create a random password for the admin user
+resource "random_password" "admin_password" {
+  length           = 16
+  special          = true
+  min_lower        = 1
+  min_upper        = 1
+  min_special      = 1
+  override_special = "_%@"
+}
+
 module "mysql_server" {
   source = "git::https://github.com/launchbynttdata/tf-azurerm-module_primitive-mysql_server?ref=feature/support_ad_auth"
   #source  = "terraform.registry.launch.nttdata.com/module_primitive/mysql_server/azurerm"
@@ -56,18 +69,19 @@ module "mysql_server" {
   resource_group_name    = module.resource_group.name
   location               = var.location
   administrator_login    = var.administrator_login
-  administrator_password = var.administrator_password
+  administrator_password = random_password.admin_password.result
   identity_ids           = [module.managed_identity.id]
   zone                   = var.zone
 
   tags       = merge(var.tags, { resource_name = module.resource_names["mysql_server"].standard })
-  depends_on = [module.resource_group]
+  depends_on = [module.resource_group, module.managed_identity]
 }
 
 module "mysql_server_ad_administrator" {
   source          = "../.."
   mysql_server_id = module.mysql_server.id
-  principal_id    = module.managed_identity.principal_id
+  identity_id     = module.managed_identity.id
+  login           = module.managed_identity.name
   tenant_id       = data.azurerm_client_config.client.tenant_id
   object_id       = data.azurerm_client_config.client.object_id
 }

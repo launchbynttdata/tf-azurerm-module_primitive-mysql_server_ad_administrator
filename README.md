@@ -134,7 +134,7 @@ No modules.
 | <a name="input_tenant_id"></a> [tenant\_id](#input\_tenant\_id) | The tenant ID of the AD administrator | `string` | n/a | yes |
 | <a name="input_object_id"></a> [object\_id](#input\_object\_id) | The object ID of the AD administrator | `string` | n/a | yes |
 | <a name="input_mysql_server_id"></a> [mysql\_server\_id](#input\_mysql\_server\_id) | The ID of the MySQL server | `string` | n/a | yes |
-| <a name="input_principal_id"></a> [principal\_id](#input\_principal\_id) | The ID of the principal to assign as AD administrator | `string` | n/a | yes |
+| <a name="input_identity_id"></a> [identity\_id](#input\_identity\_id) | The ID of the managed identity to assign as AD administrator | `string` | n/a | yes |
 | <a name="input_login"></a> [login](#input\_login) | The login name of the AD administrator | `string` | `"sqladmin"` | no |
 
 ## Outputs

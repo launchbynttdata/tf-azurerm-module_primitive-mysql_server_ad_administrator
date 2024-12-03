@@ -25,8 +25,8 @@ variable "mysql_server_id" {
   type        = string
 }
 
-variable "principal_id" {
-  description = "The ID of the principal to assign as AD administrator"
+variable "identity_id" {
+  description = "The ID of the managed identity to assign as AD administrator"
   type        = string
 }
 
