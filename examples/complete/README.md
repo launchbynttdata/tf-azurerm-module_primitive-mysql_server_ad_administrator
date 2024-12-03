@@ -24,7 +24,7 @@
 | <a name="module_managed_identity"></a> [managed\_identity](#module\_managed\_identity) | terraform.registry.launch.nttdata.com/module_primitive/user_managed_identity/azurerm | ~> 1.2 |
 | <a name="module_resource_names"></a> [resource\_names](#module\_resource\_names) | terraform.registry.launch.nttdata.com/module_library/resource_name/launch | ~> 2.0 |
 | <a name="module_resource_group"></a> [resource\_group](#module\_resource\_group) | terraform.registry.launch.nttdata.com/module_primitive/resource_group/azurerm | ~> 1.0 |
-| <a name="module_mysql_server"></a> [mysql\_server](#module\_mysql\_server) | git::https://github.com/launchbynttdata/tf-azurerm-module_primitive-mysql_server | feature/support_ad_auth |
+| <a name="module_mysql_server"></a> [mysql\_server](#module\_mysql\_server) | terraform.registry.launch.nttdata.com/module_primitive/mysql_server/azurerm | ~> 1.1 |
 | <a name="module_mysql_server_ad_administrator"></a> [mysql\_server\_ad\_administrator](#module\_mysql\_server\_ad\_administrator) | ../.. | n/a |
 
 ## Resources

@@ -60,9 +60,8 @@ resource "random_password" "admin_password" {
 }
 
 module "mysql_server" {
-  source = "git::https://github.com/launchbynttdata/tf-azurerm-module_primitive-mysql_server?ref=feature/support_ad_auth"
-  #source  = "terraform.registry.launch.nttdata.com/module_primitive/mysql_server/azurerm"
-  #version = "~> 1.0"
+  source  = "terraform.registry.launch.nttdata.com/module_primitive/mysql_server/azurerm"
+  version = "~> 1.1"
 
   name                   = module.resource_names["mysql_server"].minimal_random_suffix
   resource_group_name    = module.resource_group.name
