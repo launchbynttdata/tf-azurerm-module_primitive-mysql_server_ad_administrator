@@ -114,15 +114,6 @@ variable "administrator_login" {
   default     = null
 }
 
-variable "administrator_password" {
-  description = <<-EOT
-    The administrator password for the Mysql Flexible Server.
-    Required when `create_mode` is Default and `authentication.password_auth_enabled` is true
-  EOT
-  type        = string
-  default     = null
-}
-
 variable "zone" {
   description = "The zone of the Mysql Flexible Server"
   type        = string

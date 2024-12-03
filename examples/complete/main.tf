@@ -13,9 +13,8 @@
 data "azurerm_client_config" "client" {}
 
 module "managed_identity" {
-  source = "git::https://github.com/launchbynttdata/tf-azurerm-module_primitive-user_managed_identity?ref=feat/output_name"
-  #source  = "terraform.registry.launch.nttdata.com/module_primitive/user_managed_identity/azurerm"
-  #version = "~> 1.0"
+  source  = "terraform.registry.launch.nttdata.com/module_primitive/user_managed_identity/azurerm"
+  version = "~> 1.2"
 
   user_assigned_identity_name = module.resource_names["managed_identity"].minimal_random_suffix
   resource_group_name         = module.resource_group.name
