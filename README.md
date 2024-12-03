@@ -115,7 +115,7 @@ If `make check` target is successful, developer is good to commit the code to pr
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.116.0 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.117.0 |
 
 ## Modules
 
@@ -131,12 +131,11 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_mysql_server_name"></a> [mysql\_server\_name](#input\_mysql\_server\_name) | Name of the Mysql flexible server | `string` | n/a | yes |
-| <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | Resource group name of the Mysql Flexible Server | `string` | n/a | yes |
 | <a name="input_tenant_id"></a> [tenant\_id](#input\_tenant\_id) | The tenant ID of the AD administrator | `string` | n/a | yes |
 | <a name="input_object_id"></a> [object\_id](#input\_object\_id) | The object ID of the AD administrator | `string` | n/a | yes |
-| <a name="input_principal_name"></a> [principal\_name](#input\_principal\_name) | The name of the princiapl to assign as AD administrator | `string` | n/a | yes |
-| <a name="input_principal_type"></a> [principal\_type](#input\_principal\_type) | The type of princiapl to assign as AD administrator | `string` | n/a | yes |
+| <a name="input_mysql_server_id"></a> [mysql\_server\_id](#input\_mysql\_server\_id) | The ID of the MySQL server | `string` | n/a | yes |
+| <a name="input_principal_id"></a> [principal\_id](#input\_principal\_id) | The ID of the principal to assign as AD administrator | `string` | n/a | yes |
+| <a name="input_login"></a> [login](#input\_login) | The login name of the AD administrator | `string` | `"sqladmin"` | no |
 
 ## Outputs
 
@@ -145,5 +144,4 @@ No modules.
 | <a name="output_id"></a> [id](#output\_id) | the ID of the mysql server ad administrator |
 | <a name="output_tenant_id"></a> [tenant\_id](#output\_tenant\_id) | the tenant id of the mysql server ad administrator |
 | <a name="output_object_id"></a> [object\_id](#output\_object\_id) | the object id of the mysql server ad administrator |
-| <a name="output_principal_name"></a> [principal\_name](#output\_principal\_name) | the principal name of the mysql server ad administrator |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

@@ -24,8 +24,3 @@ output "object_id" {
   description = "the object id of the mysql server ad administrator"
   value       = azurerm_mysql_flexible_server_active_directory_administrator.administrator.object_id
 }
-
-output "principal_name" {
-  description = "the principal name of the mysql server ad administrator"
-  value       = azurerm_mysql_flexible_server_active_directory_administrator.administrator.principal_name
-}

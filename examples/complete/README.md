@@ -22,7 +22,7 @@
 | <a name="module_managed_identity"></a> [managed\_identity](#module\_managed\_identity) | terraform.registry.launch.nttdata.com/module_primitive/user_managed_identity/azurerm | ~> 1.0 |
 | <a name="module_resource_names"></a> [resource\_names](#module\_resource\_names) | terraform.registry.launch.nttdata.com/module_library/resource_name/launch | ~> 2.0 |
 | <a name="module_resource_group"></a> [resource\_group](#module\_resource\_group) | terraform.registry.launch.nttdata.com/module_primitive/resource_group/azurerm | ~> 1.0 |
-| <a name="module_mysql_server"></a> [mysql\_server](#module\_mysql\_server) | terraform.registry.launch.nttdata.com/module_primitive/mysql_server/azurerm | ~> 1.0 |
+| <a name="module_mysql_server"></a> [mysql\_server](#module\_mysql\_server) | git::https://github.com/launchbynttdata/tf-azurerm-module_primitive-mysql_server | feature/support_ad_auth |
 | <a name="module_mysql_server_ad_administrator"></a> [mysql\_server\_ad\_administrator](#module\_mysql\_server\_ad\_administrator) | ../.. | n/a |
 
 ## Resources
@@ -58,6 +58,5 @@
 | <a name="output_server_name"></a> [server\_name](#output\_server\_name) | n/a |
 | <a name="output_server_fqdn"></a> [server\_fqdn](#output\_server\_fqdn) | n/a |
 | <a name="output_tenant_id"></a> [tenant\_id](#output\_tenant\_id) | n/a |
-| <a name="output_principal_name"></a> [principal\_name](#output\_principal\_name) | n/a |
 | <a name="output_resource_group_name"></a> [resource\_group\_name](#output\_resource\_group\_name) | n/a |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

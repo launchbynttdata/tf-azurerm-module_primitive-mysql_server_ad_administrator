@@ -22,10 +22,6 @@ output "tenant_id" {
   value = module.mysql_server_ad_administrator.tenant_id
 }
 
-output "principal_name" {
-  value = module.mysql_server_ad_administrator.principal_name
-}
-
 output "resource_group_name" {
   value = module.resource_group.name
 }

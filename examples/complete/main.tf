@@ -48,31 +48,19 @@ module "resource_group" {
 }
 
 module "mysql_server" {
-  source  = "terraform.registry.launch.nttdata.com/module_primitive/mysql_server/azurerm"
-  version = "~> 1.0"
+  source = "git::https://github.com/launchbynttdata/tf-azurerm-module_primitive-mysql_server?ref=feature/support_ad_auth"
+  #source  = "terraform.registry.launch.nttdata.com/module_primitive/mysql_server/azurerm"
+  #version = "~> 1.0"
 
-  name                = module.resource_names["mysql_server"].minimal_random_suffix
-  resource_group_name = module.resource_group.name
-  location            = var.location
-
-  public_network_access_enabled = var.public_network_access_enabled
-
-  # use AD auth on the tenant being deployed to unless otherwise specified
-  authentication = coalesce(var.authentication, {
-    active_directory_auth_enabled = true
-    password_auth_enabled         = false
-    tenant_id                     = data.azurerm_client_config.client.tenant_id
-  })
-
+  name                   = module.resource_names["mysql_server"].minimal_random_suffix
+  resource_group_name    = module.resource_group.name
+  location               = var.location
   administrator_login    = var.administrator_login
   administrator_password = var.administrator_password
+  identity_ids           = [module.managed_identity.id]
+  zone                   = var.zone
 
-  storage_mb = var.storage_mb
-
-  zone = var.zone
-
-  tags = merge(var.tags, { resource_name = module.resource_names["mysql_server"].standard })
-
+  tags       = merge(var.tags, { resource_name = module.resource_names["mysql_server"].standard })
   depends_on = [module.resource_group]
 }
 
