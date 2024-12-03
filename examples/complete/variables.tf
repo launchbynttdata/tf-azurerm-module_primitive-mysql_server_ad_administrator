@@ -105,32 +105,6 @@ variable "location" {
   default     = "eastus"
 }
 
-variable "use_service_principal" {
-  description = "Set to false when running locally without a service principal"
-  type        = bool
-  default     = true
-}
-
-variable "public_network_access_enabled" {
-  description = "Whether or not public network access is allowed for this server"
-  type        = bool
-  default     = false
-}
-
-variable "authentication" {
-  description = <<-EOT
-    active_directory_auth_enabled = Whether or not Active Directory authentication is enabled for this server
-    password_auth_enabled         = Whether or not password authentication is enabled for this server
-    tenant_id                     = The tenant ID of the Active Directory to use for authentication
-  EOT
-  type = object({
-    active_directory_auth_enabled = optional(bool)
-    password_auth_enabled         = optional(bool)
-    tenant_id                     = optional(string)
-  })
-  default = null
-}
-
 variable "administrator_login" {
   description = <<-EOT
     The administrator login for the Mysql Flexible Server.
@@ -147,30 +121,6 @@ variable "administrator_password" {
   EOT
   type        = string
   default     = null
-}
-
-variable "storage_mb" {
-  description = "The storage capacity of the Mysql Flexible Server in megabytes"
-  type        = number
-  default     = 32768
-
-  validation {
-    condition = contains([
-      32768,
-      65536,
-      131072,
-      262144,
-      524288,
-      1048576,
-      2097152,
-      4193280,
-      4194304,
-      8388608,
-      16777216,
-      33553408
-    ], var.storage_mb)
-    error_message = "Invalid storage_mb value"
-  }
 }
 
 variable "zone" {
