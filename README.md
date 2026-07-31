@@ -103,19 +103,13 @@ If `make check` target is successful, developer is good to commit the code to pr
 - runs `conftests`. `conftests` make sure `policy` checks are successful.
 - runs `terratest`. This is integration test suit.
 - runs `opa` tests
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.0 |
 | <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 3.113 |
-
-## Providers
-
-| Name | Version |
-|------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.117.0 |
 
 ## Modules
 
@@ -131,17 +125,17 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_tenant_id"></a> [tenant\_id](#input\_tenant\_id) | The tenant ID of the AD administrator | `string` | n/a | yes |
-| <a name="input_object_id"></a> [object\_id](#input\_object\_id) | The object ID of the AD administrator | `string` | n/a | yes |
-| <a name="input_mysql_server_id"></a> [mysql\_server\_id](#input\_mysql\_server\_id) | The ID of the MySQL server | `string` | n/a | yes |
 | <a name="input_identity_id"></a> [identity\_id](#input\_identity\_id) | The ID of the managed identity to assign as AD administrator | `string` | n/a | yes |
 | <a name="input_login"></a> [login](#input\_login) | The login name of the AD administrator | `string` | `"sqladmin"` | no |
+| <a name="input_mysql_server_id"></a> [mysql\_server\_id](#input\_mysql\_server\_id) | The ID of the MySQL server | `string` | n/a | yes |
+| <a name="input_object_id"></a> [object\_id](#input\_object\_id) | The object ID of the AD administrator | `string` | n/a | yes |
+| <a name="input_tenant_id"></a> [tenant\_id](#input\_tenant\_id) | The tenant ID of the AD administrator | `string` | n/a | yes |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
 | <a name="output_id"></a> [id](#output\_id) | the ID of the mysql server ad administrator |
-| <a name="output_tenant_id"></a> [tenant\_id](#output\_tenant\_id) | the tenant id of the mysql server ad administrator |
 | <a name="output_object_id"></a> [object\_id](#output\_object\_id) | the object id of the mysql server ad administrator |
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+| <a name="output_tenant_id"></a> [tenant\_id](#output\_tenant\_id) | the tenant id of the mysql server ad administrator |
+<!-- END_TF_DOCS -->
