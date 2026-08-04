@@ -124,7 +124,7 @@ No modules.
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-| ---- | ----------- | ---- | ------- | :------: |
+|------|-------------|------|---------|:--------:|
 | <a name="input_identity_id"></a> [identity\_id](#input\_identity\_id) | The ID of the managed identity to assign as AD administrator | `string` | n/a | yes |
 | <a name="input_login"></a> [login](#input\_login) | The login name of the AD administrator | `string` | `"sqladmin"` | no |
 | <a name="input_mysql_server_id"></a> [mysql\_server\_id](#input\_mysql\_server\_id) | The ID of the MySQL server | `string` | n/a | yes |
